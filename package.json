@@ -4,6 +4,7 @@
   "description": "Paluz app",
   "main": "index.js",
   "scripts": {
+    "prestart": "chmod +x node_modules/.bin/ts-node",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
