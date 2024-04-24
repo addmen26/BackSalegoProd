@@ -42,26 +42,51 @@ async function postCliente(req) {
   let data;
   const params = req.body;
   
-
+console.log(params)
     try {
     data = await base_cliente.create({
       
-      holding: params.holding,
-      tipo_cliente: params.tipo_cliente,
-      razon_social: params.razon_social,
-      nombre_fantasia: params.nombre_fantasia,
-      rut: params.rut,
-      pais: params.pais,
-      direccion: params.direccion,
-      ciudad: params. ciudad,
-      region_o_zona: params.region_o_zona,
-      giro: params.giro,
-      industria: params.industria,
-      sector: params.sector,
-      nombre_representante: params.nombre_representante,
-      fono_representante: params.fono_representante,
-      correo_representante: params.correo_representante,
-      dueno_cuenta: params.dueno_cuenta
+          nombre	:params.nombre,	
+        	email	:params.email,	
+        	rut		:params.rut,
+        	telefono	:params.telefono,	
+        	actividad	:params.actividad,	
+        	pais		:params.pais,
+        	region		:params.region,
+         	ciudad		:params.ciudad,
+        	direccion		:params.direccion,
+        	tipoEmpresaGeo		:params.tipoEmpresaGeo,
+        	partner		:params.partner,
+        	rubro		:params.rubro,
+        	holding		:params.holding,
+        	matriz		:params.matriz,
+        	nombreFantasia		:params.nombreFantasia,
+        	holdingId		:params.holdingId,
+        	plazoPago		:params.plazoPago,
+        	contactoPago		:params.contactoPago,
+        	emailPago		:params.emailPago,
+        	direccionPago		:params.direccionPago,
+        	lineaCredito		:params.lineaCredito,
+        	nombreRepresentante		:params.nombreRepresentante,
+        	emailRepresentante		:params.emailRepresentante,
+        	rutRepresentante		:params.rutRepresentante,
+        	nombreFacturacion		:params.nombreFacturacion,
+        	emailFacturacion		:params.emailFacturacion,
+        	rutFacturacion		:params.rutFacturacion,
+        	nombreCobranza		:params.nombreCobranza,
+        	emailCobranza	:params.emailCobranza,
+        	rutCobranza		:params.rutCobranza,
+        	nombreOperacion		:params.nombreOperacion,
+        	emailOperacion		:params.emailOperacion,
+        	rutOperacion	:params.rutOperacion,
+        	nombreOtro		:params.nombreOtro,
+        	emailOtro	:params.emailOtro,
+          rutOtro:params.rutOtro,
+        	estado	:params.estado,
+        tipoCliente	:params.tipoCliente,
+        tipoContrato:params.tipoContrato,
+    	fecha_modificacion	: new Date(),
+       	fecha_creacion	:new Date()
 
     }),
     console.log(data);

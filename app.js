@@ -41,6 +41,7 @@ var convocatoria = require('./convocatorias/routes/convocatoria');
 var equipos = require('./equipos/routes/equipos');
 var litros = require('./ventaLitros/routes/litros');
 var cliente = require('./cliente/routes/clientesRoutes');
+var maestros = require('./maestros/routes/maestros');
 // rutas
 //app.use("/api/usuarios", usuarioRoutes/);
 app.use('/api', usuario);
@@ -58,4 +59,5 @@ app.use('/api', convocatoria);
 app.use('/api', equipos);
 app.use('/api', litros);
 app.use('/api', cliente);
+app.use('/api', maestros);
 module.exports = app;

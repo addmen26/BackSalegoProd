@@ -1,23 +1,22 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../db/db_sequelize');
 
-const base_sector = sequelize.define(
-    "sector", {
-        id_sector: {
+const base_productoSolucion = sequelize.define(
+    "producto_solucion", {
+        id_productoSolucion: {
             type: Sequelize.SMALLINT,
             primaryKey: true,
             autoIncrement: true
         },
-        nombre_sector: Sequelize.STRING,
-        descripcion: Sequelize.STRING,
-        estado:Sequelize.TINYINT,
+        nombre_producto:Sequelize.STRING,
+        descripcion:Sequelize.STRING,
         fecha_modificacion: Sequelize.DATE,
         fecha_creacion: Sequelize.DATE,
     }, {
         timestamps: false,
-        tableName: 'sector'
+        tableName: 'producto_solucion'
     }
 );
 
 
-module.exports = base_sector;
+module.exports = base_productoSolucion;

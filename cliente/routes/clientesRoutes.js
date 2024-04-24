@@ -6,7 +6,7 @@ var api = express.Router();
 
 
 api.get('/clientes', Controller.getAllClientes);
-api.post('/clientes',Controller.postCliente);
+api.post('/crearclientes',Controller.postCliente);
 api.put('/clientes',Controller.putCliente);
 
 

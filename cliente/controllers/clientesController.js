@@ -10,7 +10,7 @@ async function getAllClientes(req, res){
 async function postCliente(req, res) {
   const clientes = await service.postCliente(req);
   res.status(clientes.status).send(clientes.data);
-  console.log(clientes.status,"aja llego aqui")
+ 
 }
 // actualizar cliente(PUT)
 async function putCliente(req, res) {

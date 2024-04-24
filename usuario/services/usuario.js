@@ -12,87 +12,119 @@ const sequelize = require('../../db/db_sequelize');
 const correo = require('../services/correo');
 
 // Crear Usuario
+// async function crearUsuario(req) {
+
+//     let data;
+//     const params = req.body;
+//     const usuario = await base_usuarios.findOne({
+//         attributes: ['rol'],
+//         where: {
+//             email: params.correo,
+            
+//         }
+//     });
+//     console.log(usuario);
+//     if (!usuario) {
+//         try {
+            
+//             const salt = await bcrypt.genSalt(10);
+//            const pass= params.password
+//        let password = await bcrypt.hash(pass, salt);
+//     //    checkUser(params.correo,params.password)
+    
+//     //    async function checkUser(username, password) {
+//     //     //... fetch user from a db etc.
+    
+//     //     const match = await bcrypt.compare(password, password1);
+    
+//     //     if(match) {
+//     //         console.log('si es ')//login
+//     //     }
+    
+//     //     //...
+//     // }
+    
+//             data = await base_usuarios.create({
+//                 //idusuario: params.idusuario,
+               
+//                 email: params.correo,
+//                 password:password,
+//                 rol:params.rol,
+//                 estado: 0,
+//                 //confirmado: 0, // Por default no está confirmado el usuario
+//                 token:null,
+//                 //cUsuario_Registro: 'SA',
+//                  fecha_modificacion: new Date(),
+//                 fecha_creacion: new Date()
+//             });
+    
+//             if (data != '') {
+            
+    
+//                 return {
+//                     status: 200,
+//                     error: '',
+//                     data,
+//                 };
+//             } else {
+//                 return {
+//                     status: 400,
+//                     error: 'Error al crear la cuenta',
+//                     data,
+//                 };
+//             }
+    
+//         } catch (err) {
+//             // do something
+//             return {
+//                 status: 500,
+//                 error: err,
+//                 data: [],
+//             }
+//         }
+//     } else{
+//         return {
+//             status: 400,
+//             error: 'Usuario ya existe',
+//             data:'Usuario ya existe',
+//         };
+//     }
+    
+
+    
+// }
+
 async function crearUsuario(req) {
 
     let data;
     const params = req.body;
-    const usuario = await base_usuarios.findOne({
-        attributes: ['rol'],
-        where: {
-            email: params.correo,
-            
-        }
-    });
-    console.log(usuario);
-    if (!usuario) {
-        try {
-            
-            const salt = await bcrypt.genSalt(10);
-           const pass= params.password
-       let password = await bcrypt.hash(pass, salt);
-    //    checkUser(params.correo,params.password)
-    
-    //    async function checkUser(username, password) {
-    //     //... fetch user from a db etc.
-    
-    //     const match = await bcrypt.compare(password, password1);
-    
-    //     if(match) {
-    //         console.log('si es ')//login
-    //     }
-    
-    //     //...
-    // }
-    
-            data = await base_usuarios.create({
-                //idusuario: params.idusuario,
-               
-                email: params.correo,
-                password:password,
-                rol:params.rol,
-                estado: 0,
-                //confirmado: 0, // Por default no está confirmado el usuario
-                token:null,
-                //cUsuario_Registro: 'SA',
-                 fecha_modificacion: new Date(),
-                fecha_creacion: new Date()
-            });
-    
-            if (data != '') {
-            
-    
-                return {
-                    status: 200,
-                    error: '',
-                    data,
-                };
-            } else {
-                return {
-                    status: 400,
-                    error: 'Error al crear la cuenta',
-                    data,
-                };
-            }
-    
-        } catch (err) {
-            // do something
-            return {
-                status: 500,
-                error: err,
-                data: [],
-            }
-        }
-    } else{
-        return {
-            status: 400,
-            error: 'Usuario ya existe',
-            data:'Usuario ya existe',
-        };
-    }
-    
+    console.log(params.nombre);
+   
+       try {
+   
+           data = await base_usuarios.create({
+            nombre_usuario:params.nombre_usuario,
+            correo_usuario:params.correo_usuario,
+            contraseña_usuario:params.password,
+            tipo_usuario:1
+           });
+           console.log(data);
+           return {
+             
+               status: 200,
+               error: '',
+               data: data,
+           };
+   
+       } catch (err) {
+           return {
+               status: 500,
+               error: err,
+               data: data,
+           };
+       }
+   }
 
-    
-}
 
 // Obtener datos de usuario invitado o administrador
 async function getUsuario(req) {

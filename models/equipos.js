@@ -3,12 +3,12 @@ const sequelize = require('../db/db_sequelize');
 
 const base_equipos= sequelize.define(
     "equipos", {
-        id: {
+        id_equipos: {
             type: Sequelize.SMALLINT,
             primaryKey: true,
             autoIncrement: true
         },
-        nombre: Sequelize.STRING,
+        nombre_equipos: Sequelize.STRING,
         descripcion:Sequelize.STRING,
         //miembros:Sequelize.STRING,
         estado:Sequelize.STRING,
